@@ -17,7 +17,9 @@ class CategoryFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            // 'parent_id' => \App\Models\Category::factory(),
+            'name' => $this->faker->name,
+            'slug' => $this->faker->unique()->slug,
         ];
     }
 }
