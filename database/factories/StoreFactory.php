@@ -17,7 +17,8 @@ class StoreFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => $this->faker->name,
+            'user_id' => \App\Models\User::factory(),
         ];
     }
 }
