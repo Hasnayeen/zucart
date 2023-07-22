@@ -28,7 +28,8 @@ class VendorPanelProvider extends PanelProvider
             ->id('vendor')
             ->path('/')
             ->colors([
-                'primary' => Color::Indigo,
+                'primary' => Color::Purple,
+                'secondary' => Color::Yellow,
             ])
             ->discoverResources(in: app_path('Filament/Vendor/Resources'), for: 'App\\Filament\\Vendor\\Resources')
             ->discoverPages(in: app_path('Filament/Vendor/Pages'), for: 'App\\Filament\\Vendor\\Pages')
@@ -59,6 +60,8 @@ class VendorPanelProvider extends PanelProvider
             ->login()
             ->registration()
             ->tenantRegistration(RegisterStore::class)
-            ->profile();
+            ->profile()
+            ->sidebarFullyCollapsibleOnDesktop()
+            ->sidebarCollapsibleOnDesktop();
     }
 }
