@@ -1,0 +1,15 @@
+@import '../../../vendor/filament/filament/resources/css/theme.css';
+
+@config './tailwind.config.js';
+
+.fi-topbar {
+    @apply bg-transparent shadow-none;
+}
+
+.fi-sidebar-header {
+    @apply bg-transparent shadow-none;
+}
+
+.fi-sidebar {
+    @apply lg:bg-white border border-gray-200 m-4 rounded-xl h-auto !important;
+}
