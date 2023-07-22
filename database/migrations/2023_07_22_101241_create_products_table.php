@@ -21,6 +21,8 @@ return new class extends Migration
             $table->unsignedInteger('price_in_cents');
             $table->string('currency', 3);
             $table->unsignedInteger('quantity');
+            $table->json('dimensions')->nullable();
+            $table->json('weight')->nullable();
             $table->text('barcode')->nullable();
             $table->json('attributes')->nullable();
             $table->foreignIdFor(Category::class)->nullable()->constrained()->cascadeOnDelete();

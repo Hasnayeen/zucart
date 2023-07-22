@@ -53,6 +53,8 @@ class ProductResource extends Resource
                 Forms\Components\TextInput::make('quantity')
                     ->required()
                     ->numeric(),
+                Forms\Components\KeyValue::make('dimensions'),
+                Forms\Components\KeyValue::make('weight'),
                 Forms\Components\Textarea::make('barcode')
                     ->maxLength(65535)
                     ->columnSpanFull(),
