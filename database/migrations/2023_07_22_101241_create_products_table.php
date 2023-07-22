@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Category;
+use App\Models\ProductUnit;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -25,6 +26,7 @@ return new class extends Migration
             $table->json('weight')->nullable();
             $table->text('barcode')->nullable();
             $table->json('attributes')->nullable();
+            $table->foreignIdFor(ProductUnit::class)->nullable()->constrained()->cascadeOnDelete();
             $table->foreignIdFor(Category::class)->nullable()->constrained()->cascadeOnDelete();
             $table->foreignUlid('store_id')->constrained('stores')->cascadeOnDelete();
             $table->timestamp('deleted_at')->nullable();
