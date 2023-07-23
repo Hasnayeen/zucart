@@ -4,7 +4,7 @@ export default {
     presets: [preset],
     content: [
         './app/Filament/Admin/**/*.php',
-        './resources/views/filament/admin/**/*.blade.php',
+        './resources/views/**/*.blade.php',
         './vendor/filament/**/*.blade.php',
     ],
 }

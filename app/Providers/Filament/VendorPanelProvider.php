@@ -3,6 +3,7 @@
 namespace App\Providers\Filament;
 
 use App\Filament\Vendor\Pages\Tenancy\RegisterStore;
+use App\Http\Middleware\SetPanelOptions;
 use App\Models\Store;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -32,15 +33,11 @@ class VendorPanelProvider extends PanelProvider
                 'secondary' => Color::Yellow,
             ])
             ->favicon('favicon.svg')
-            ->viteTheme('resources/css/filament/theme.css')
             ->discoverResources(in: app_path('Filament/Vendor/Resources'), for: 'App\\Filament\\Vendor\\Resources')
             ->discoverPages(in: app_path('Filament/Vendor/Pages'), for: 'App\\Filament\\Vendor\\Pages')
             ->pages([])
             ->discoverWidgets(in: app_path('Filament/Vendor/Widgets'), for: 'App\\Filament\\Vendor\\Widgets')
-            ->widgets([
-                Widgets\AccountWidget::class,
-                Widgets\FilamentInfoWidget::class,
-            ])
+            ->widgets([])
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,
@@ -51,6 +48,7 @@ class VendorPanelProvider extends PanelProvider
                 SubstituteBindings::class,
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
+                SetPanelOptions::class,
             ])
             ->authMiddleware([
                 Authenticate::class,
@@ -61,7 +59,7 @@ class VendorPanelProvider extends PanelProvider
             ->registration()
             ->tenantRegistration(RegisterStore::class)
             ->profile()
-            ->sidebarFullyCollapsibleOnDesktop()
-            ->sidebarCollapsibleOnDesktop();
+            ->databaseNotifications()
+            ->renderHook('page.start', fn () => view('tenant-menu'));
     }
 }

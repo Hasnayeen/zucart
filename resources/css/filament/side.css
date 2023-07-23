@@ -2,8 +2,20 @@
 
 @config './tailwind.config.js';
 
+body {
+    @apply bg-primary-50 !important;
+}
+
+.fi-topbar .fi-user-menu {
+    @apply hidden;
+}
+
 .fi-topbar {
     @apply bg-transparent shadow-none;
+}
+
+.fi-tenant-menu + div {
+    @apply -ms-3 -me-3;
 }
 
 .fi-sidebar-header {

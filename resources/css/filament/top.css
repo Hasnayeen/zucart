@@ -1,0 +1,23 @@
+@import '../../../vendor/filament/filament/resources/css/theme.css';
+
+@config './tailwind.config.js';
+
+body {
+    @apply bg-primary-50 dark:bg-gray-950 !important;
+}
+
+.fi-topbar {
+    @apply bg-primary-50 dark:bg-gray-950 shadow-none max-w-7xl mx-auto !important;
+}
+
+.fi-tenant-menu {
+    @apply border border-primary-200 dark:border-black bg-primary-100 dark:bg-gray-800 rounded-lg;
+}
+
+.fi-tenant-menu .fi-dropdown-trigger div {
+    @apply m-0;
+}
+
+.fi-sidebar {
+    @apply hidden;
+}

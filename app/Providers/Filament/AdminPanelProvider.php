@@ -29,7 +29,7 @@ class AdminPanelProvider extends PanelProvider
                 'primary' => Color::hex('#581c87'),
             ])
             ->favicon('favicon.svg')
-            ->viteTheme('resources/css/filament/theme.css')
+            ->viteTheme('resources/css/filament/side.css')
             ->discoverResources(in: app_path('Filament/Admin/Resources'), for: 'App\\Filament\\Admin\\Resources')
             ->discoverPages(in: app_path('Filament/Admin/Pages'), for: 'App\\Filament\\Admin\\Pages')
             ->pages([])
@@ -53,6 +53,7 @@ class AdminPanelProvider extends PanelProvider
             ->login()
             ->registration()
             ->sidebarFullyCollapsibleOnDesktop()
-            ->sidebarCollapsibleOnDesktop();
+            ->sidebarCollapsibleOnDesktop()
+            ->renderHook('sidebar.footer', fn () => view('user-menu'));
     }
 }
